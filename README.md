@@ -1,9 +1,17 @@
  <div align="center">
 
   <h2>MontiMark</h2>
-  <blockquote>Watermark your images + Web Monetization for payment</blockquote>
+  <h3>Watermark your images and include Web Monetization for payment</h3>
+
+  https://webmonetization.org/
+
+  <h2>
+    <a href="https://nokol.net/montimark/">View Demo</a>
+    </h2>
 
 </div>
+
+
 
 ## Install
 ````
@@ -26,8 +34,16 @@ var options = {
 new Montimark('.selector', 'watermarkpath.jpg', options);
 ```
 
+## Run code
+You can test demonetizion on the demo Page
+```
+git clone https://github.com/domEscobar/montimark
+npm run install
+npm run start
+```
+
 ## Todo
-Clean th code
+Clean the code
 
 
 ## Contributing

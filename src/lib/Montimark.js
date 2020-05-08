@@ -33,7 +33,6 @@ class Montimark {
       this.markImages(elements, watermarkImg);
     })
 
-
     if (document.monetization) {
       document.monetization.addEventListener('monetizationstart', () => {
         this.showOriginals(elements);
@@ -53,24 +52,41 @@ class Montimark {
     })
   }
 
-  markImages(elements, watermarkImg) {
+  async markImages(elements, watermarkImg) {
     const me = this;
 
-    elements.forEach(img => {
+    for (let img of elements) {
       if (img instanceof HTMLImageElement) {
         const uid = this.randomUid();
+        img.crossOrigin = '*';
 
-        me.orginals.push({ id: uid, src: img.src });
-        let canvas = this.drawImage(img);
-        canvas = this.watermark(canvas, watermarkImg);
-        img.src = this.dataUrl(canvas);
-        img.setAttribute('markId', uid);
+        const toAdd = { id: uid, src: img.src };
+        me.orginals.push(toAdd);
+
+        this.showGhostImage(img);
+
+        this.loadImage(toAdd.src).then(imgres => {
+          img.src = toAdd.src;
+          let canvas = this.drawImage(img);
+          canvas = this.watermark(canvas, watermarkImg);
+          img.src = this.dataUrl(canvas);
+          img.setAttribute('markId', uid);
+        });
       }
-    })
+    }
+  }
+
+  showGhostImage(img) {
+    const h = img.height;
+    const w = img.width;
+    img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAmCAIAAADMaMX6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVFhH7c1BEQAwEAOh+lcZKTXB3GsxwNutPqvP6rP6rD6rz+qz+qw+q8/qs/qs22/7cqJrk6NNXs8AAAAASUVORK5CYII=";
+    img.height = h;
+    img.width = w;
   }
 
   loadImage(url) {
     const img = new Image();
+    img.crossOrigin = '*';
     return new Promise(resolve => {
       img.onload = () => resolve(img)
       img.src = url;

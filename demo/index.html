@@ -1,1 +1,17 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Demo</title><link href="index.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root">Demo Pagedwerwer</div><img class="test" src="test.jpg"/><script src="index.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Demo</title><meta name="monetization" content="$twitter.xrptipbot.com/Interledger"><style>button{padding:10px;font-size:20px;background:#ff5722;color:#fff;border:0}</style><link href="index.css" rel="stylesheet"></head><body><script>function demonetize() {
+      const randomGuid = 'c7ff7da9-8a41-4660-98a8-ca4df0176fbe';
+      const metaContent = '$twitter.xrptipbot.com/Interledger';
+      const resolvedEndpoint = metaContent.replace(/^\$/, 'https://');
+
+      const monetizationstartEvent = new CustomEvent('monetizationstart', {
+        detail: {
+          requestId: randomGuid,
+          id: randomGuid,
+          metaContent,
+          resolvedEndpoint
+        }
+      });
+
+      document.monetization.dispatchEvent(monetizationstartEvent);
+      document.monetization.state = 'started';
+    }</script><noscript>You need to enable JavaScript to run this app.</noscript><button onclick="demonetize()">Demonetize</button> <img class="test" src="test.jpg" style="width:100%;height:auto;max-width:400px"/><script src="index.js"></script></body></html>
