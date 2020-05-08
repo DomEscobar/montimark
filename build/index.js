@@ -1,9 +1,9 @@
 /*!
  * 
- *   MontiMark v1.0.11
+ *   montimark v1.0.0
  *   https://github.com/domEscobar/montimark
  * 
- *   Copyright (c) domEscobar (https://github.com/domEscobar)
+ *   Copyright (c) Dominic H. (https://github.com/domEscobar)
  * 
  *   This source code is licensed under the MIT license found in the
  *   LICENSE file in the root directory of this source tree.

@@ -1,6 +1,6 @@
 {
-  "name": "MontiMark",
-  "version": "1.0.11",
+  "name": "montimark",
+  "version": "1.0.0",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
@@ -15,8 +15,7 @@
     "url": "https://github.com/domEscobar/montimark"
   },
   "author": "Dominic H. (https://github.com/domEscobar)",
-  "bugs": {
-  },
+  "bugs": {},
   "keywords": [
     "library"
   ],

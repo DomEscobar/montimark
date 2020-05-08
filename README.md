@@ -15,7 +15,20 @@ npm install montimark --save
 
 ```
 new Montimark('.selector', 'watermarkpath.jpg');
+
+// or with options
+
+var options = { 
+    rect: { w: 100, h: 100 }, // boundaries of the watermark
+    position: { x: 20, y: 50 } // watermark position
+  };
+
+new Montimark('.selector', 'watermarkpath.jpg', options);
 ```
+
+## Todo
+Clean th code
+
 
 ## Contributing
 
