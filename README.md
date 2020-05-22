@@ -11,6 +11,10 @@
 
 </div>
 
+## Requirement
+
+A Monetization provider like Coil and the Chrome plugin e.g
+https://chrome.google.com/webstore/detail/coil/locbifcbeldmnphbgkdigjmkbfkhbnca/related?hl=en
 
 
 ## Install
