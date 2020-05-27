@@ -41,12 +41,13 @@ new Montimark('.selector', 'watermarkpath.jpg', options);
 ## Options
 
 
-|Property |    Default  | Usage
-| ------------- | ------------- | ---------
-| rect      | w: null, h: null | {  rect: { w: 100, h: 100 } }
-| position      | X: 10 , y: 10 | {  position: { x: 100, y: 100 } } OR  {  position: { x: 'left', y: 'bottom' } }
-| opacity       | 1 |- 
-| crossOrigin        | '*'  | -
+| Property    | Default          | Usage                                                                           |
+| ----------- | ---------------- | ------------------------------------------------------------------------------- |
+| rect        | w: null, h: null | {  rect: { w: 100, h: 100 } }                                                   |
+| position    | X: 10 , y: 10    | {  position: { x: 100, y: 100 } } OR  {  position: { x: 'left', y: 'bottom' } } |
+| opacity     | 1                | -                                                                               |
+| crossOrigin | '*'              | -                                                                               |
+| loader | Gray ghost background             | { loader : 'loader.gif' }
 
 ## Run code
 You can test demonetizion on the demo Page

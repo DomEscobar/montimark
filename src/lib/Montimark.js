@@ -10,7 +10,8 @@ class Montimark {
     position: {
       x: 10,
       y: 10,
-    }
+    },
+    loader : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAmCAIAAADMaMX6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVFhH7c1BEQAwEAOh+lcZKTXB3GsxwNutPqvP6rP6rD6rz+qz+qw+q8/qs/qs22/7cqJrk6NNXs8AAAAASUVORK5CYII='
   }
 
   orginals = [];
@@ -30,6 +31,7 @@ class Montimark {
     this.showOriginals = this.showOriginals.bind(this);
     this.markImages = this.markImages.bind(this);
     this.watermark = this.watermark.bind(this);
+    this.showGhostImage = this.showGhostImage.bind(this);
 
     this.loadImage(watermarkPath).then(watermarkImg => {
       this.markImages(elements, watermarkImg);
@@ -81,7 +83,7 @@ class Montimark {
   showGhostImage(img) {
     const h = img.height;
     const w = img.width;
-    img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAmCAIAAADMaMX6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAzSURBVFhH7c1BEQAwEAOh+lcZKTXB3GsxwNutPqvP6rP6rD6rz+qz+qw+q8/qs/qs22/7cqJrk6NNXs8AAAAASUVORK5CYII=";
+    img.src = this.configurations.loader;
     img.height = h;
     img.width = w;
   }
@@ -138,6 +140,7 @@ class Montimark {
     this.configurations.position = newconfig.position || this.configurations.position;
     this.configurations.crossOrigin = newconfig.position || this.configurations.crossOrigin;
     this.configurations.opacity = newconfig.opacity || this.configurations.opacity;
+    this.configurations.loader = newconfig.loader || this.configurations.loader;
   }
 }
 
