@@ -1,6 +1,8 @@
 class Montimark {
 
   configurations = {
+    opacity: 1,
+    crossOrigin: '*',
     rect: {
       w: null,
       h: null,
@@ -52,7 +54,7 @@ class Montimark {
     })
   }
 
-  async markImages(elements, watermarkImg) {
+  markImages(elements, watermarkImg) {
     const me = this;
 
     for (let img of elements) {
@@ -86,7 +88,7 @@ class Montimark {
 
   loadImage(url) {
     const img = new Image();
-    img.crossOrigin = '*';
+    img.crossOrigin = this.configurations.crossOrigin;
     return new Promise(resolve => {
       img.onload = () => resolve(img)
       img.src = url;
@@ -104,12 +106,22 @@ class Montimark {
 
   watermark(canvas, img) {
     const ctx = canvas.getContext('2d');
+    ctx.globalAlpha = this.configurations.opacity;
 
-    ctx.drawImage(img,
-      this.configurations.position.x,
-      this.configurations.position.y,
-      this.configurations.rect.w || img.width,
-      this.configurations.rect.h || img.height);
+    let x = this.configurations.position.x;
+    let y = this.configurations.position.y;
+    const w = this.configurations.rect.w || img.width;
+    const h = this.configurations.rect.h || img.height
+
+    if (typeof this.configurations.position.x === 'string' && typeof this.configurations.position.y === 'string') {
+      const height = canvas.height;
+      const width = canvas.width;
+
+      x = this.configurations.position.x === 'left' ? 10 : (width - w);
+      y = this.configurations.position.y === 'top' ? 10 : (height - h);
+    }
+
+    ctx.drawImage(img, x, y, w, h);
     return canvas;
   }
 
@@ -124,6 +136,8 @@ class Montimark {
   handleParams(newconfig) {
     this.configurations.rect = newconfig.rect || this.configurations.rect;
     this.configurations.position = newconfig.position || this.configurations.position;
+    this.configurations.crossOrigin = newconfig.position || this.configurations.crossOrigin;
+    this.configurations.opacity = newconfig.opacity || this.configurations.opacity;
   }
 }
 

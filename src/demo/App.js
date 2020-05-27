@@ -3,7 +3,7 @@ import Lib from './../lib';
 
 class App {
   constructor() {
-    new Lib('.test', 'watermark.png', { rect: { w: 220, h: 80 }, position: { x: 20, y: 50 } });
+    new Lib('.test', 'watermark.png', { opacity: 1, rect: { w: 120, h: 80 }, position: { x: 'right', y: 'bottom' } });
   }
 
 

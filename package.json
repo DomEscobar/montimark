@@ -1,6 +1,6 @@
 {
   "name": "montimark",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
@@ -21,7 +21,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@babel/plugin-transform-runtime" :"7.9.6",
+    "@babel/plugin-transform-runtime": "7.9.6",
     "@babel/core": "7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
@@ -134,12 +134,6 @@
     "plugins": [
       [
         "@babel/plugin-proposal-class-properties"
-      ],
-      [
-        "@babel/plugin-transform-runtime",
-        {
-          "regenerator": true
-        }
       ]
     ]
   },
