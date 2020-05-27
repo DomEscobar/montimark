@@ -47,7 +47,6 @@ new Montimark('.selector', 'watermarkpath.jpg', options);
 | position      | X: 10 , y: 10 | {  position: { x: 100, y: 100 } } OR  {  position: { x: 'left', y: 'bottom' } }
 | opacity       | 1 |- 
 | crossOrigin        | '*'  | -
-| 1.x.x         |     2.x.x     
 
 ## Run code
 You can test demonetizion on the demo Page
