@@ -32,6 +32,7 @@ class Montimark {
     this.markImages = this.markImages.bind(this);
     this.watermark = this.watermark.bind(this);
     this.showGhostImage = this.showGhostImage.bind(this);
+    this.loadImage = this.loadImage.bind(this);
 
     this.loadImage(watermarkPath).then(watermarkImg => {
       this.markImages(elements, watermarkImg);
@@ -138,7 +139,7 @@ class Montimark {
   handleParams(newconfig) {
     this.configurations.rect = newconfig.rect || this.configurations.rect;
     this.configurations.position = newconfig.position || this.configurations.position;
-    this.configurations.crossOrigin = newconfig.position || this.configurations.crossOrigin;
+    this.configurations.crossOrigin = newconfig.crossOrigin || this.configurations.crossOrigin;
     this.configurations.opacity = newconfig.opacity || this.configurations.opacity;
     this.configurations.loader = newconfig.loader || this.configurations.loader;
   }
